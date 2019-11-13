@@ -1,8 +1,17 @@
 <mat-toolbar color="primary"> 
     <span> <a routerLink="/" > My App</a></span>  
     <ul  class="ml-auto">
-        <li >
+        <li *ngIf="isLoggedIn">
             <a  mat-button routerLink="/create"  routerLinkActive="mat-accent" >New Post</a>
+        </li>
+        <li >
+            <a *ngIf="!isLoggedIn" mat-button routerLink="/login"  routerLinkActive="mat-accent" >Login</a>
+        </li>
+        <li >
+            <a *ngIf="!isLoggedIn" mat-button routerLink="/signup"  routerLinkActive="mat-accent" >SignUp</a>
+        </li>
+        <li  *ngIf="isLoggedIn">
+            <button  mat-button (click)="onLogOut()" >Logout</button>
         </li>
     </ul>
 </mat-toolbar>
