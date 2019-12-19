@@ -6,7 +6,8 @@
             <img [src]="post.imagePath" alt="Not found">
         </div>
         <p>{{ post.content }}</p>
-        <mat-action-row *ngIf="isLoggedIn && userId===post.creator">
+       <!-- <mat-action-row *ngIf="isLoggedIn && userId===post.creator">-->
+        <mat-action-row >
             <a mat-button color="primary" [routerLink]="['edit',post.id]" routerLinkActive="router-link-active" >Edit</a>
             <button mat-button color="warn" (click)="onDelete(post.id)">Delete</button>
         </mat-action-row>

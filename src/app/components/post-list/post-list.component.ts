@@ -46,7 +46,7 @@ export class PostListComponent implements OnInit , OnDestroy{
    
   }
   ngOnDestroy(){
-    this.postsSubscription.unsubscribe()
+    this.postsSubscription.unsubscribe();
     this.authListenerSubscription.unsubscribe();
   }
 
@@ -54,6 +54,8 @@ export class PostListComponent implements OnInit , OnDestroy{
     this.isloading = true;
     this.postsService.deletePost(id).subscribe(()=>{
       this.postsService.getPosts(this.postsPerPage,this.currentPage);
+    }, (error)=>{
+      this.isloading =false;
     });
   }
 

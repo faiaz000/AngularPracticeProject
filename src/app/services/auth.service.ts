@@ -38,6 +38,8 @@ export class AuthService {
               .subscribe(respose=>{
                 console.log('res',respose)
                 this.router.navigate(['/']);
+              },error=>{
+                this.authStatusListener.next(false);
               })
   }
    autoAuthUser(){
@@ -82,6 +84,8 @@ export class AuthService {
         this.router.navigate(['/']);
       }
       //console.log('response',this.token,'msg: ',result.message)
+    },error=>{
+      this.authStatusListener.next(false);
     })
   }
   logout(){
